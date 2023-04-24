@@ -31,7 +31,7 @@ export default {
           :name="`todo-${id}`"
           v-model="isChecked"
           :disabled="isFormItem"
-          class="aspect-square w-5 appearance-none rounded-full border border-very-light-grayish-blue from-check-bg-from to-check-bg-to checked:bg-gradient-to-br md:w-6"
+          class="aspect-square w-5 appearance-none rounded-full border border-very-light-grayish-blue from-check-bg-from to-check-bg-to checked:border-none checked:bg-gradient-to-br md:w-6"
           :class="{ 'cursor-pointer': !isFormItem }"
         />
         <IconCheck

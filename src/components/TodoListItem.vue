@@ -25,25 +25,32 @@ export default {
 <template>
   <div class="group flex h-12 items-center justify-between gap-4 px-5 md:h-16 md:px-6">
     <div class="flex items-center gap-4">
-      <label :for="`todo-${id}`" class="flex items-center justify-center">
+      <label
+        :for="`todo-${id}`"
+        class="aspect-square w-5 rounded-full from-check-bg-from to-check-bg-to p-px md:w-6 md:p-[2px]"
+        :class="{
+          'bg-gradient-to-br': isChecked,
+          'bg-very-light-grayish-blue': !isChecked,
+          'cursor-pointer hover:bg-gradient-to-br': !isFormItem
+        }"
+      >
         <input
           type="checkbox"
           :id="`todo-${id}`"
           v-model="isChecked"
           :disabled="isFormItem"
-          class="aspect-square w-5 appearance-none rounded-full border border-very-light-grayish-blue from-check-bg-from to-check-bg-to checked:border-none checked:bg-gradient-to-br md:w-6"
-          :class="{ 'cursor-pointer': !isFormItem }"
+          class="hidden"
         />
-        <IconCheck
-          class="pointer-events-none absolute w-2 md:w-3"
-          :class="{ 'block': isChecked, 'hidden': !isChecked }"
-        />
+
+        <div
+          class="flex aspect-square w-full items-center justify-center rounded-full bg-white"
+          :class="{ 'bg-opacity-0': isChecked }"
+        >
+          <IconCheck class="w-2 md:w-3" :class="{ 'block': isChecked, 'hidden': !isChecked }" />
+        </div>
       </label>
 
-      <div
-        class="pt-1 peer-checked:text-very-light-gray"
-        :class="{ 'text-light-grayish-blue line-through': isChecked }"
-      >
+      <div class="pt-1" :class="{ 'text-light-grayish-blue line-through': isChecked }">
         <slot></slot>
       </div>
     </div>

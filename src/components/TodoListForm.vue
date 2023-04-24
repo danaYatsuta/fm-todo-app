@@ -10,7 +10,7 @@ export default {
 
 <template>
   <AppCard>
-    <TodoListItem :id="0" :checkboxDisabled="true">
+    <TodoListItem :id="0" :isFormItem="true">
       <input type="text" placeholder="Create a new todo..." class="w-full" />
     </TodoListItem>
   </AppCard>

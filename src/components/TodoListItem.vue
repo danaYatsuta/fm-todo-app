@@ -23,7 +23,7 @@ export default {
 </script>
 
 <template>
-  <div class="flex h-12 items-center justify-between gap-4 px-5 md:h-16 md:px-6">
+  <div class="group flex h-12 items-center justify-between gap-4 px-5 md:h-16 md:px-6">
     <div class="flex items-center gap-4">
       <label :for="`todo-${id}`" class="flex items-center justify-center">
         <input
@@ -48,6 +48,12 @@ export default {
       </div>
     </div>
 
-    <button v-if="!isFormItem" aria-label="Delete item" class="w-3 md:w-4"><IconCross /></button>
+    <button
+      v-if="!isFormItem"
+      aria-label="Delete item"
+      class="w-3 md:w-4 xl:hidden xl:group-hover:block"
+    >
+      <IconCross />
+    </button>
   </div>
 </template>

@@ -57,7 +57,7 @@ export default {
 
     <button
       v-if="!isFormItem"
-      aria-label="Delete item"
+      aria-label="Delete task"
       class="w-3 md:w-4 xl:hidden xl:group-hover:block"
     >
       <IconCross />

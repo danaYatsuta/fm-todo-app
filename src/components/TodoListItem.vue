@@ -13,6 +13,11 @@ export default {
       type: Boolean,
       default: false
     }
+  },
+  data() {
+    return {
+      isChecked: false
+    }
   }
 }
 </script>
@@ -24,14 +29,21 @@ export default {
         <input
           type="checkbox"
           :name="`todo-${id}`"
+          v-model="isChecked"
           :disabled="isFormItem"
-          class="peer aspect-square w-5 appearance-none rounded-full border border-very-light-grayish-blue from-check-bg-from to-check-bg-to checked:bg-gradient-to-br"
+          class="aspect-square w-5 appearance-none rounded-full border border-very-light-grayish-blue from-check-bg-from to-check-bg-to checked:bg-gradient-to-br"
           :class="{ 'cursor-pointer': !isFormItem }"
         />
-        <IconCheck class="pointer-events-none absolute hidden w-2 peer-checked:block" />
+        <IconCheck
+          class="pointer-events-none absolute w-2"
+          :class="{ block: isChecked, hidden: !isChecked }"
+        />
       </label>
 
-      <div class="pt-1">
+      <div
+        class="pt-1 peer-checked:text-very-light-gray"
+        :class="{ 'text-light-grayish-blue line-through': isChecked }"
+      >
         <slot></slot>
       </div>
     </div>

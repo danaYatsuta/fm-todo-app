@@ -23,7 +23,10 @@ export default {
 </script>
 
 <template>
-  <div class="group flex h-12 items-center justify-between gap-4 px-5 md:h-16 md:px-6">
+  <div
+    class="group flex items-center justify-between gap-4 px-5 md:px-6"
+    :class="{ 'h-12 md:h-16': isFormItem, 'h-[3.25rem] md:h-16': !isFormItem }"
+  >
     <div class="flex items-center gap-4">
       <label
         :for="`todo-${id}`"

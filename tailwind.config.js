@@ -39,10 +39,6 @@ module.exports = {
     fontFamily: {
       'josefin-sans': ['Josefin Sans', 'sans-serif']
     },
-    backgroundImage: {
-      'mobile-light': 'url("./images/bg-mobile-light.jpg")',
-      'desktop-light': 'url("./images/bg-desktop-light.jpg")'
-    },
     screens: {
       xs: '376px',
       ...defaultTheme.screens
@@ -50,6 +46,10 @@ module.exports = {
     extend: {
       screens: {
         '2xl': '1440px'
+      },
+      backgroundImage: {
+        'mobile-light': 'url("./images/bg-mobile-light.jpg")',
+        'desktop-light': 'url("./images/bg-desktop-light.jpg")'
       }
     }
   },

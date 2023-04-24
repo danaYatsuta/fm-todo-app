@@ -10,7 +10,7 @@ export default {
 
 <template>
   <header
-    class="mx-auto h-[200px] max-w-screen-2xl bg-mobile-light px-6 pt-12 xs:bg-desktop-light md:h-[300px] md:pt-20"
+    class="mx-auto h-[200px] w-full max-w-screen-2xl bg-mobile-light px-6 pt-12 xs:bg-desktop-light md:h-[300px] md:pt-20"
   >
     <nav class="mx-auto flex w-full max-w-xl items-start justify-between">
       <a href="#" class="text-2xl font-bold uppercase tracking-[0.4em] text-white md:text-4xl"

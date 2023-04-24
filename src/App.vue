@@ -12,7 +12,7 @@ export default {
 
 <template>
   <div
-    class="flex min-h-screen flex-col bg-very-light-gray font-josefin-sans text-sm text-very-dark-grayish-blue"
+    class="flex min-h-screen flex-col bg-very-light-gray font-josefin-sans text-sm md:text-lg text-very-dark-grayish-blue"
   >
     <TheHeader />
 

@@ -23,7 +23,7 @@ export default {
 </script>
 
 <template>
-  <div class="flex h-12 items-center justify-between gap-4 px-5">
+  <div class="flex h-12 items-center justify-between gap-4 px-5 md:h-16 md:px-6">
     <div class="flex items-center gap-4">
       <label :for="`todo-${id}`" class="flex items-center justify-center">
         <input
@@ -31,11 +31,11 @@ export default {
           :name="`todo-${id}`"
           v-model="isChecked"
           :disabled="isFormItem"
-          class="aspect-square w-5 appearance-none rounded-full border border-very-light-grayish-blue from-check-bg-from to-check-bg-to checked:bg-gradient-to-br"
+          class="aspect-square w-5 appearance-none rounded-full border border-very-light-grayish-blue from-check-bg-from to-check-bg-to checked:bg-gradient-to-br md:w-6"
           :class="{ 'cursor-pointer': !isFormItem }"
         />
         <IconCheck
-          class="pointer-events-none absolute w-2"
+          class="pointer-events-none absolute w-2 md:w-3"
           :class="{ 'block': isChecked, 'hidden': !isChecked }"
         />
       </label>
@@ -48,6 +48,6 @@ export default {
       </div>
     </div>
 
-    <button v-if="!isFormItem" aria-label="Delete item" class="w-3"><IconCross /></button>
+    <button v-if="!isFormItem" aria-label="Delete item" class="w-3 md:w-4"><IconCross /></button>
   </div>
 </template>

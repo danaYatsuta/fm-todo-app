@@ -40,7 +40,7 @@ module.exports = {
       'josefin-sans': ['Josefin Sans', 'sans-serif']
     },
     screens: {
-      xs: '376px',
+      'xs': '376px',
       ...defaultTheme.screens
     },
     extend: {

@@ -36,7 +36,7 @@ export default {
         />
         <IconCheck
           class="pointer-events-none absolute w-2"
-          :class="{ block: isChecked, hidden: !isChecked }"
+          :class="{ 'block': isChecked, 'hidden': !isChecked }"
         />
       </label>
 

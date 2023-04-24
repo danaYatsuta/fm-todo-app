@@ -19,6 +19,13 @@ export default {
         <TodoListItem :id="1">item 1</TodoListItem>
         <TodoListItem :id="2">item 2</TodoListItem>
         <TodoListItem :id="3">item 3</TodoListItem>
+        <div
+          class="flex h-[3.125rem] items-center justify-between px-5 text-sm text-dark-grayish-blue md:px-6"
+        >
+          <p>3 items left</p>
+
+          <button>Clear Completed</button>
+        </div>
       </AppCard>
     </div>
   </div>

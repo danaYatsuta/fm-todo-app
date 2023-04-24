@@ -11,7 +11,11 @@ export default {
 <template>
   <AppCard>
     <TodoListItem :id="0" :isFormItem="true">
-      <input type="text" placeholder="Create a new todo..." class="w-full" />
+      <input
+        type="text"
+        placeholder="Create a new todo..."
+        class="w-full placeholder:text-dark-grayish-blue"
+      />
     </TodoListItem>
   </AppCard>
 </template>

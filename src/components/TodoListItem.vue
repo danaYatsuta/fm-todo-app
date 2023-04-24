@@ -48,6 +48,6 @@ export default {
       </div>
     </div>
 
-    <button aria-label="Delete item" class="w-3"><IconCross /></button>
+    <button v-if="!isFormItem" aria-label="Delete item" class="w-3"><IconCross /></button>
   </div>
 </template>

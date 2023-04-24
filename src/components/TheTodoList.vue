@@ -16,9 +16,9 @@ export default {
       <TodoListForm />
 
       <AppCard class="divide-y divide-very-light-grayish-blue shadow-xl">
-        <TodoListItem>item 1</TodoListItem>
-        <TodoListItem>item 2</TodoListItem>
-        <TodoListItem>item 3</TodoListItem>
+        <TodoListItem :id="1">item 1</TodoListItem>
+        <TodoListItem :id="2">item 2</TodoListItem>
+        <TodoListItem :id="3">item 3</TodoListItem>
       </AppCard>
     </div>
   </div>

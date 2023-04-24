@@ -17,7 +17,7 @@ export default {
         >Todo</a
       >
 
-      <button aria-label="Toggle night mode" class="aspect-square w-6 md:w-8"><IconMoon /></button>
+      <button aria-label="Toggle night mode" class="w-6 md:w-8"><IconMoon /></button>
     </nav>
   </header>
 </template>

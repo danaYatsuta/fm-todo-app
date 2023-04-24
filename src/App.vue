@@ -1,3 +1,13 @@
+<script>
+import TheHeader from './components/TheHeader.vue'
+
+export default {
+  components: {
+    TheHeader
+  }
+}
+</script>
+
 <template>
-  <h1 class="text-red-500">Hello World</h1>
+  <TheHeader />
 </template>

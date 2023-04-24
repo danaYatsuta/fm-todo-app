@@ -1,4 +1,6 @@
 /* eslint-env node */
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
@@ -24,7 +26,11 @@ module.exports = {
       'dt-light-grayish-blue-hover': 'hsl(236, 33%, 92%)',
       'dt-dark-grayish-blue': 'hsl(234, 11%, 52%)',
       'dt-very-dark-grayish-blue': 'hsl(233, 14%, 35%)',
-      'dt-very-dark-grayish-blue-hover': 'hsl(237, 14%, 26%)'
+      'dt-very-dark-grayish-blue-hover': 'hsl(237, 14%, 26%)',
+
+      // Custom
+
+      'white': '#fff'
     },
     gradientColorStops: {
       'check-bg-from': 'hsl(192, 100%, 67%)',
@@ -33,7 +39,19 @@ module.exports = {
     fontFamily: {
       'josefin-sans': ['Josefin Sans', 'sans-serif']
     },
-    extend: {}
+    backgroundImage: {
+      'mobile-light': 'url("./images/bg-mobile-light.jpg")',
+      'desktop-light': 'url("./images/bg-desktop-light.jpg")'
+    },
+    screens: {
+      xs: '376px',
+      ...defaultTheme.screens
+    },
+    extend: {
+      screens: {
+        '2xl': '1440px'
+      }
+    }
   },
   plugins: []
 }

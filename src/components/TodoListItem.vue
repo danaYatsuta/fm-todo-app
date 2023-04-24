@@ -30,7 +30,7 @@ export default {
     <div class="flex items-center gap-4">
       <label
         :for="`todo-${id}`"
-        class="aspect-square w-5 rounded-full from-check-bg-from to-check-bg-to p-px md:w-6 md:p-[2px]"
+        class="aspect-square w-5 rounded-full from-check-bg-from to-check-bg-to p-px md:w-6"
         :class="{
           'bg-gradient-to-br': isChecked,
           'bg-very-light-grayish-blue': !isChecked,

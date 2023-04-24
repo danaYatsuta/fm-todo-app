@@ -28,7 +28,7 @@ export default {
       <label :for="`todo-${id}`" class="flex items-center justify-center">
         <input
           type="checkbox"
-          :name="`todo-${id}`"
+          :id="`todo-${id}`"
           v-model="isChecked"
           :disabled="isFormItem"
           class="aspect-square w-5 appearance-none rounded-full border border-very-light-grayish-blue from-check-bg-from to-check-bg-to checked:border-none checked:bg-gradient-to-br md:w-6"

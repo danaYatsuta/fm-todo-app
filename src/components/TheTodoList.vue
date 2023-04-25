@@ -63,7 +63,7 @@ export default {
             <div ref="filterDesktopParent" class="hidden md:block"></div>
 
             <button
-              class="hover:text-very-dark-grayish-blue dark:hover:text-dt-light-grayish-blue-hover"
+              class="hover:text-very-dark-grayish-blue active:text-bright-blue dark:hover:text-dt-light-grayish-blue-hover dark:active:text-bright-blue"
             >
               Clear Completed
             </button>

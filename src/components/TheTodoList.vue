@@ -62,7 +62,11 @@ export default {
           <div class="flex items-center gap-14">
             <div ref="filterDesktopParent" class="hidden md:block"></div>
 
-            <button>Clear Completed</button>
+            <button
+              class="hover:text-very-dark-grayish-blue dark:hover:text-dt-light-grayish-blue-hover"
+            >
+              Clear Completed
+            </button>
           </div>
         </div>
       </AppCard>

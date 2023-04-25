@@ -51,7 +51,7 @@ export default {
       <AppCard
         class="divide-y divide-very-light-grayish-blue shadow-xl dark:divide-dt-very-dark-grayish-blue-2"
       >
-        <TodoListItem :id="1">item 1</TodoListItem>
+        <TodoListItem :id="1">item 1 item 1 item 1 item 1 item 1 item 1 item 1 item 1</TodoListItem>
         <TodoListItem :id="2">item 2</TodoListItem>
         <TodoListItem :id="3">item 3</TodoListItem>
         <div

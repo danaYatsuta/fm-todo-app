@@ -1,11 +1,13 @@
 <script>
 import TodoListForm from './TodoListForm.vue'
 import TodoListItem from './TodoListItem.vue'
+import FilterRadioButton from './FilterRadioButton.vue'
 
 export default {
   components: {
     TodoListForm,
-    TodoListItem
+    TodoListItem,
+    FilterRadioButton
   }
 }
 </script>
@@ -25,6 +27,14 @@ export default {
           <p>3 items left</p>
 
           <button>Clear Completed</button>
+        </div>
+      </AppCard>
+
+      <AppCard class="shadow-lg">
+        <div class="flex h-12 items-center justify-center gap-4 text-base">
+          <FilterRadioButton id="all" :isChecked="true">All</FilterRadioButton>
+          <FilterRadioButton id="active">Active</FilterRadioButton>
+          <FilterRadioButton id="hidden">Hidden</FilterRadioButton>
         </div>
       </AppCard>
     </div>

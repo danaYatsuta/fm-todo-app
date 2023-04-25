@@ -1,13 +1,35 @@
 <script>
 import TodoListForm from './TodoListForm.vue'
 import TodoListItem from './TodoListItem.vue'
-import FilterRadioButton from './FilterRadioButton.vue'
+import TodoListFilter from './TodoListFilter.vue'
+
+import resolveConfig from 'tailwindcss/resolveConfig'
+import tailwindConfig from '@tailwindConfig'
+
+const fullConfig = resolveConfig(tailwindConfig)
 
 export default {
   components: {
     TodoListForm,
     TodoListItem,
-    FilterRadioButton
+    TodoListFilter
+  },
+  data() {
+    return {
+      isMdScreen: false
+    }
+  },
+  methods: {
+    onResize() {
+      this.isMdScreen = window.matchMedia(`(min-width: ${fullConfig.theme.screens.md})`).matches
+    }
+  },
+  mounted() {
+    this.onResize()
+    window.addEventListener('resize', this.onResize)
+  },
+  beforeUnmount() {
+    window.removeEventListener('resize', this.onResize)
   }
 }
 </script>
@@ -22,20 +44,20 @@ export default {
         <TodoListItem :id="2">item 2</TodoListItem>
         <TodoListItem :id="3">item 3</TodoListItem>
         <div
-          class="flex h-[3.125rem] items-center justify-between px-5 text-sm text-dark-grayish-blue md:px-6"
+          class="flex h-[3.125rem] items-center justify-between px-5 text-sm text-dark-grayish-blue md:px-6 md:text-base"
         >
           <p>3 items left</p>
 
-          <button>Clear Completed</button>
+          <div class="flex items-center gap-14">
+            <TodoListFilter v-if="isMdScreen" />
+
+            <button>Clear Completed</button>
+          </div>
         </div>
       </AppCard>
 
-      <AppCard class="shadow-lg">
-        <div class="flex h-12 items-center justify-center gap-4 text-base">
-          <FilterRadioButton id="all" :isChecked="true">All</FilterRadioButton>
-          <FilterRadioButton id="active">Active</FilterRadioButton>
-          <FilterRadioButton id="hidden">Hidden</FilterRadioButton>
-        </div>
+      <AppCard v-if="!isMdScreen" class="shadow-lg md:hidden">
+        <TodoListFilter />
       </AppCard>
     </div>
   </div>

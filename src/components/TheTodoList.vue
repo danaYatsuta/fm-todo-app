@@ -24,6 +24,15 @@ export default {
       this.isMdScreen = window.matchMedia(`(min-width: ${fullConfig.theme.screens.md})`).matches
     }
   },
+  watch: {
+    isMdScreen(newIsMdScreen) {
+      if (newIsMdScreen) {
+        this.$refs.filterDesktopParent.appendChild(this.$refs.filter)
+      } else {
+        this.$refs.filterMobileParent.appendChild(this.$refs.filter)
+      }
+    }
+  },
   mounted() {
     this.onResize()
     window.addEventListener('resize', this.onResize)
@@ -49,15 +58,19 @@ export default {
           <p>3 items left</p>
 
           <div class="flex items-center gap-14">
-            <TodoListFilter v-if="isMdScreen" />
+            <div ref="filterDesktopParent" class="hidden md:block"></div>
 
             <button>Clear Completed</button>
           </div>
         </div>
       </AppCard>
 
-      <AppCard v-if="!isMdScreen" class="shadow-lg md:hidden">
-        <TodoListFilter />
+      <AppCard class="shadow-lg md:hidden">
+        <div ref="filterMobileParent">
+          <div ref="filter">
+            <TodoListFilter />
+          </div>
+        </div>
       </AppCard>
     </div>
   </div>

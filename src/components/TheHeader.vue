@@ -4,6 +4,11 @@ import IconMoon from './icons/IconMoon.vue'
 export default {
   components: {
     IconMoon
+  },
+  methods: {
+    toggleDarkMode() {
+      this.$emit('toggleDarkMode')
+    }
   }
 }
 </script>
@@ -17,7 +22,7 @@ export default {
         >Todo</a
       >
 
-      <button aria-label="Toggle night mode" class="w-6 md:w-8"><IconMoon /></button>
+      <button @click="toggleDarkMode" aria-label="Toggle night mode" class="w-6 md:w-8"><IconMoon /></button>
     </nav>
   </header>
 </template>

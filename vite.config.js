@@ -11,7 +11,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
-      '@tailwindConfig': path.resolve(__dirname, 'tailwind.config.js')
+      '@tailwindConfig': path.resolve(__dirname, 'tailwind.config.cjs')
     }
   },
   optimizeDeps: {
@@ -19,7 +19,7 @@ export default defineConfig({
   },
   build: {
     commonjsOptions: {
-      transformMixedEsModules: true
+      include: ['tailwind-config.cjs', 'node_modules/**']
     }
   }
 })

@@ -33,7 +33,7 @@ export default {
         class="aspect-square w-5 rounded-full from-check-bg-from to-check-bg-to p-px md:w-6"
         :class="{
           'bg-gradient-to-br': isChecked,
-          'bg-very-light-grayish-blue': !isChecked,
+          'bg-very-light-grayish-blue dark:bg-dt-very-dark-grayish-blue-2': !isChecked,
           'cursor-pointer hover:bg-gradient-to-br': !isFormItem
         }"
       >
@@ -46,14 +46,19 @@ export default {
         />
 
         <div
-          class="flex aspect-square w-full items-center justify-center rounded-full bg-white"
-          :class="{ 'bg-opacity-0': isChecked }"
+          class="flex aspect-square w-full items-center justify-center rounded-full bg-white dark:bg-dt-very-dark-desaturated-blue"
+          :class="{ 'bg-opacity-0 dark:bg-opacity-0': isChecked }"
         >
           <IconCheck class="w-2 md:w-3" :class="{ 'block': isChecked, 'hidden': !isChecked }" />
         </div>
       </label>
 
-      <div class="pt-1" :class="{ 'text-light-grayish-blue line-through': isChecked }">
+      <div
+        class="pt-1"
+        :class="{
+          'text-light-grayish-blue line-through dark:text-dt-very-dark-grayish-blue-2': isChecked
+        }"
+      >
         <slot></slot>
       </div>
     </div>

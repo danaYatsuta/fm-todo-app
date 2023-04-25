@@ -48,12 +48,14 @@ export default {
     <div class="mx-auto flex max-w-xl flex-col gap-4 md:gap-6">
       <TodoListForm />
 
-      <AppCard class="divide-y divide-very-light-grayish-blue shadow-xl">
+      <AppCard
+        class="divide-y divide-very-light-grayish-blue shadow-xl dark:divide-dt-very-dark-grayish-blue-2"
+      >
         <TodoListItem :id="1">item 1</TodoListItem>
         <TodoListItem :id="2">item 2</TodoListItem>
         <TodoListItem :id="3">item 3</TodoListItem>
         <div
-          class="flex h-[3.125rem] items-center justify-between px-5 text-sm text-dark-grayish-blue md:px-6 md:text-base"
+          class="flex h-[3.125rem] items-center justify-between px-5 text-sm text-dark-grayish-blue dark:text-dt-very-dark-grayish-blue md:px-6 md:text-base"
         >
           <p>3 items left</p>
 

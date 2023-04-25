@@ -14,7 +14,7 @@ export default {
       <input
         type="text"
         placeholder="Create a new todo..."
-        class="w-full placeholder:text-dark-grayish-blue"
+        class="w-full placeholder:text-dark-grayish-blue dark:bg-dt-very-dark-desaturated-blue dark:text-dt-dark-grayish-blue"
       />
     </TodoListItem>
   </AppCard>

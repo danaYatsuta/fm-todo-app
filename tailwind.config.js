@@ -27,7 +27,7 @@ module.exports = {
       'dt-light-grayish-blue-hover': 'hsl(236, 33%, 92%)',
       'dt-dark-grayish-blue': 'hsl(234, 11%, 52%)',
       'dt-very-dark-grayish-blue': 'hsl(233, 14%, 35%)',
-      'dt-very-dark-grayish-blue-hover': 'hsl(237, 14%, 26%)',
+      'dt-very-dark-grayish-blue-2': 'hsl(237, 14%, 26%)',
 
       // Custom
 
@@ -50,7 +50,9 @@ module.exports = {
       },
       backgroundImage: {
         'mobile-light': 'url("./images/bg-mobile-light.jpg")',
-        'desktop-light': 'url("./images/bg-desktop-light.jpg")'
+        'desktop-light': 'url("./images/bg-desktop-light.jpg")',
+        'mobile-dark': 'url("./images/bg-mobile-dark.jpg")',
+        'desktop-dark': 'url("./images/bg-desktop-dark.jpg")'
       }
     }
   },

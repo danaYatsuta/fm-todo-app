@@ -27,7 +27,7 @@ export default {
     class="group flex items-center justify-between gap-4 px-5 md:px-6"
     :class="{ 'h-12 md:h-16': isFormItem, 'h-[3.25rem] md:h-16': !isFormItem }"
   >
-    <div class="flex items-center gap-4 overflow-hidden">
+    <div class="flex w-full items-center gap-4 overflow-hidden">
       <label
         :for="`todo-${id}`"
         class="aspect-square w-5 rounded-full from-check-bg-from to-check-bg-to p-px md:w-6"
@@ -54,7 +54,7 @@ export default {
       </label>
 
       <div
-        class="truncate pt-1"
+        class="flex-1 truncate pt-1"
         :class="{
           'text-light-grayish-blue line-through dark:text-dt-very-dark-grayish-blue-2': isChecked
         }"

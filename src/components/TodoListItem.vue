@@ -8,7 +8,7 @@ export default {
     IconCross
   },
   props: {
-    id: Number,
+    todo: Object,
     isFormItem: {
       type: Boolean,
       default: false
@@ -16,7 +16,17 @@ export default {
   },
   data() {
     return {
-      isChecked: false
+      isCompleted: this.isFormItem ? false : this.todo.completed
+    }
+  },
+  computed: {
+    id() {
+      return this.isFormItem ? 'form' : this.todo.id
+    }
+  },
+  watch: {
+    isCompleted(newIsChecked) {
+      this.$emit('updateTodoCompletion', newIsChecked)
     }
   }
 }
@@ -32,31 +42,31 @@ export default {
         :for="`todo-${id}`"
         class="aspect-square w-5 rounded-full from-check-bg-from to-check-bg-to p-px md:w-6"
         :class="{
-          'bg-gradient-to-br': isChecked,
-          'bg-very-light-grayish-blue dark:bg-dt-very-dark-grayish-blue-2': !isChecked,
+          'bg-gradient-to-br': isCompleted,
+          'bg-very-light-grayish-blue dark:bg-dt-very-dark-grayish-blue-2': !isCompleted,
           'cursor-pointer hover:bg-gradient-to-br': !isFormItem
         }"
       >
         <input
           type="checkbox"
           :id="`todo-${id}`"
-          v-model="isChecked"
+          v-model="isCompleted"
           :disabled="isFormItem"
           class="hidden"
         />
 
         <div
           class="flex aspect-square w-full items-center justify-center rounded-full bg-white dark:bg-dt-very-dark-desaturated-blue"
-          :class="{ 'bg-opacity-0 dark:bg-opacity-0': isChecked }"
+          :class="{ 'bg-opacity-0 dark:bg-opacity-0': isCompleted }"
         >
-          <IconCheck class="w-2 md:w-3" :class="{ 'block': isChecked, 'hidden': !isChecked }" />
+          <IconCheck class="w-2 md:w-3" :class="{ 'block': isCompleted, 'hidden': !isCompleted }" />
         </div>
       </label>
 
       <div
         class="flex-1 truncate pt-1"
         :class="{
-          'text-light-grayish-blue line-through dark:text-dt-very-dark-grayish-blue-2': isChecked
+          'text-light-grayish-blue line-through dark:text-dt-very-dark-grayish-blue-2': isCompleted
         }"
       >
         <slot></slot>

@@ -63,7 +63,12 @@ export default {
       <AppCard
         class="divide-y divide-very-light-grayish-blue shadow-xl dark:divide-dt-very-dark-grayish-blue-2"
       >
-        <TodoListItem v-for="todo in todos" :key="todo.id" :id="todo.id">
+        <TodoListItem
+          v-for="todo in todos"
+          :key="todo.id"
+          :todo="todo"
+          @updateTodoCompletion="(newCompleted) => (todo.completed = newCompleted)"
+        >
           {{ todo.text }}
         </TodoListItem>
 

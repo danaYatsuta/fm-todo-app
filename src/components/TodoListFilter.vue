@@ -8,6 +8,7 @@ export default {
   props: {
     defaultTodoFilter: String
   },
+  emits: ['updateTodoFilter'],
   data() {
     return {
       todoFilter: this.defaultTodoFilter

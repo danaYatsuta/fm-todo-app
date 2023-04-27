@@ -8,6 +8,8 @@ import tailwindConfig from '@tailwindConfig'
 
 const fullConfig = resolveConfig(tailwindConfig)
 
+let id = 1
+
 export default {
   components: {
     TodoListForm,
@@ -16,24 +18,22 @@ export default {
   },
   data() {
     return {
-      todos: [
-        {
-          id: 1,
-          text: 'Todo 1',
-          completed: false
-        },
-        {
-          id: 2,
-          text: 'Todo 2',
-          completed: true
-        }
-      ],
+      todos: [],
       isMdScreen: false
     }
   },
   methods: {
     onResize() {
       this.isMdScreen = window.matchMedia(`(min-width: ${fullConfig.theme.screens.md})`).matches
+    },
+    createNewTodo(newTodoText) {
+      const newTodo = {
+        id: id++,
+        text: newTodoText,
+        completed: false
+      }
+
+      this.todos.push(newTodo)
     }
   },
   watch: {
@@ -58,7 +58,7 @@ export default {
 <template>
   <div class="-translate-y-24 px-6 md:-translate-y-36">
     <div class="mx-auto flex max-w-xl flex-col gap-4 md:gap-6">
-      <TodoListForm />
+      <TodoListForm @createNewTodo="createNewTodo" />
 
       <AppCard
         class="divide-y divide-very-light-grayish-blue shadow-xl dark:divide-dt-very-dark-grayish-blue-2"

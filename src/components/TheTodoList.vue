@@ -56,7 +56,7 @@ export default {
       this.todos.push(newTodo)
     },
     clearCompleted() {
-      this.todos = this.activeTodos()
+      this.todos = this.activeTodos
     }
   },
   watch: {

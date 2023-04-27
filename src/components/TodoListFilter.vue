@@ -7,7 +7,7 @@ export default {
   },
   data() {
     return {
-      selectedFilter: null
+      selectedFilter: 'all'
     }
   }
 }
@@ -15,12 +15,10 @@ export default {
 
 <template>
   <div>
-    <div
-      class="flex h-12 items-center justify-center gap-4"
-    >
-      <FilterRadioButton id="all" :isChecked="true">All</FilterRadioButton>
-      <FilterRadioButton id="active">Active</FilterRadioButton>
-      <FilterRadioButton id="hidden">Hidden</FilterRadioButton>
+    <div class="flex h-12 items-center justify-center gap-4">
+      <FilterRadioButton v-model="selectedFilter" value="all">All</FilterRadioButton>
+      <FilterRadioButton v-model="selectedFilter" value="active">Active</FilterRadioButton>
+      <FilterRadioButton v-model="selectedFilter" value="hidden">Hidden</FilterRadioButton>
     </div>
   </div>
 </template>

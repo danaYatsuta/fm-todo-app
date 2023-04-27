@@ -19,6 +19,7 @@ export default {
   data() {
     return {
       todos: [],
+      todoFilter: 'all',
       isMdScreen: false
     }
   },

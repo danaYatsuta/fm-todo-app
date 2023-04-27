@@ -5,9 +5,17 @@ export default {
   components: {
     FilterRadioButton
   },
+  props: {
+    defaultTodoFilter: String
+  },
   data() {
     return {
-      selectedFilter: 'all'
+      todoFilter: this.defaultTodoFilter
+    }
+  },
+  watch: {
+    todoFilter(newtodoFilter) {
+      this.$emit('updateTodoFilter', newtodoFilter)
     }
   }
 }
@@ -16,9 +24,9 @@ export default {
 <template>
   <div>
     <div class="flex h-12 items-center justify-center gap-4">
-      <FilterRadioButton v-model="selectedFilter" value="all">All</FilterRadioButton>
-      <FilterRadioButton v-model="selectedFilter" value="active">Active</FilterRadioButton>
-      <FilterRadioButton v-model="selectedFilter" value="hidden">Hidden</FilterRadioButton>
+      <FilterRadioButton v-model="todoFilter" value="all">All</FilterRadioButton>
+      <FilterRadioButton v-model="todoFilter" value="active">Active</FilterRadioButton>
+      <FilterRadioButton v-model="todoFilter" value="hidden">Hidden</FilterRadioButton>
     </div>
   </div>
 </template>

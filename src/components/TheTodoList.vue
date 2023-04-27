@@ -37,6 +37,17 @@ export default {
       this.todos.push(newTodo)
     }
   },
+  computed: {
+    filteredTodos() {
+      switch (this.todoFilter) {
+        default:
+        case 'all':
+          return this.todos
+        case 'active':
+          return this.todos.filter((todo) => !todo.completed)
+      }
+    }
+  },
   watch: {
     isMdScreen(newIsMdScreen) {
       if (newIsMdScreen) {
@@ -65,7 +76,7 @@ export default {
         class="divide-y divide-very-light-grayish-blue shadow-xl dark:divide-dt-very-dark-grayish-blue-2"
       >
         <TodoListItem
-          v-for="todo in todos"
+          v-for="todo in filteredTodos"
           :key="todo.id"
           :todo="todo"
           @updateTodoCompletion="(newCompleted) => (todo.completed = newCompleted)"
@@ -93,7 +104,10 @@ export default {
       <AppCard class="shadow-lg md:hidden">
         <div ref="filterMobileParent">
           <div ref="filter">
-            <TodoListFilter />
+            <TodoListFilter
+              :default-todo-filter="todoFilter"
+              @updateTodoFilter="(newTodoFilter) => (todoFilter = newTodoFilter)"
+            />
           </div>
         </div>
       </AppCard>

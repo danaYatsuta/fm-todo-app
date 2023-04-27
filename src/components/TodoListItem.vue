@@ -14,7 +14,7 @@ export default {
       default: false
     }
   },
-  emits: ['updateTodoCompletion'],
+  emits: ['updateTodoCompletion', 'deleteTodo'],
   data() {
     return {
       isCompleted: this.isFormItem ? false : this.todo.completed
@@ -23,6 +23,11 @@ export default {
   computed: {
     id() {
       return this.isFormItem ? 'form' : this.todo.id
+    }
+  },
+  methods: {
+    deleteTodo() {
+      this.$emit('deleteTodo')
     }
   },
   watch: {
@@ -76,6 +81,7 @@ export default {
 
     <button
       v-if="!isFormItem"
+      @click="deleteTodo"
       aria-label="Delete task"
       class="w-3 md:w-4 xl:hidden xl:group-hover:block"
     >

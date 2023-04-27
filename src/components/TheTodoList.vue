@@ -23,6 +23,19 @@ export default {
       isMdScreen: false
     }
   },
+  computed: {
+    filteredTodos() {
+      switch (this.todoFilter) {
+        default:
+        case 'all':
+          return this.todos
+        case 'active':
+          return this.todos.filter((todo) => !todo.completed)
+        case 'completed':
+          return this.todos.filter((todo) => todo.completed)
+      }
+    }
+  },
   methods: {
     onResize() {
       this.isMdScreen = window.matchMedia(`(min-width: ${fullConfig.theme.screens.md})`).matches
@@ -35,19 +48,6 @@ export default {
       }
 
       this.todos.push(newTodo)
-    }
-  },
-  computed: {
-    filteredTodos() {
-      switch (this.todoFilter) {
-        default:
-        case 'all':
-          return this.todos
-        case 'active':
-          return this.todos.filter((todo) => !todo.completed)
-        case 'completed':
-          return this.todos.filter((todo) => todo.completed)
-      }
     }
   },
   watch: {
@@ -82,6 +82,7 @@ export default {
           :key="todo.id"
           :todo="todo"
           @updateTodoCompletion="(newCompleted) => (todo.completed = newCompleted)"
+          @delete-todo="todos = todos.filter((existingTodo) => existingTodo !== todo)"
         >
           {{ todo.text }}
         </TodoListItem>

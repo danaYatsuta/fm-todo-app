@@ -48,6 +48,9 @@ export default {
       }
 
       this.todos.push(newTodo)
+    },
+    clearCompleted() {
+      this.todos = this.todos.filter((todo) => !todo.completed)
     }
   },
   watch: {
@@ -96,6 +99,7 @@ export default {
             <div ref="filterDesktopParent" class="hidden md:block"></div>
 
             <button
+              @click="clearCompleted"
               class="hover:text-very-dark-grayish-blue active:text-bright-blue dark:hover:text-dt-light-grayish-blue-hover dark:active:text-bright-blue"
             >
               Clear Completed

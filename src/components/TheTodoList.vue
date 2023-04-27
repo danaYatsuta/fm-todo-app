@@ -45,6 +45,8 @@ export default {
           return this.todos
         case 'active':
           return this.todos.filter((todo) => !todo.completed)
+        case 'completed':
+          return this.todos.filter((todo) => todo.completed)
       }
     }
   },

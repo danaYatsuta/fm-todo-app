@@ -26,7 +26,7 @@ export default {
     <div class="flex h-12 items-center justify-center gap-4">
       <FilterRadioButton v-model="todoFilter" value="all">All</FilterRadioButton>
       <FilterRadioButton v-model="todoFilter" value="active">Active</FilterRadioButton>
-      <FilterRadioButton v-model="todoFilter" value="hidden">Hidden</FilterRadioButton>
+      <FilterRadioButton v-model="todoFilter" value="completed">Completed</FilterRadioButton>
     </div>
   </div>
 </template>

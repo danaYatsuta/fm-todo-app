@@ -15,7 +15,7 @@ export default {
     <input type="radio" name="todo-filter" :id="id" class="peer hidden" :checked="isChecked" />
     <label
       :for="id"
-      class="cursor-pointer text-base font-bold text-dark-grayish-blue hover:text-very-dark-grayish-blue peer-checked:text-bright-blue dark:text-dt-very-dark-grayish-blue dark:hover:text-dt-light-grayish-blue-hover"
+      class="cursor-pointer text-base font-bold text-dark-grayish-blue hover:text-very-dark-grayish-blue peer-checked:text-bright-blue dark:text-dt-very-dark-grayish-blue dark:hover:text-dt-light-grayish-blue-hover dark:peer-checked:text-bright-blue"
       ><slot></slot
     ></label>
   </div>

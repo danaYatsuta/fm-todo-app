@@ -24,15 +24,21 @@ export default {
     }
   },
   computed: {
+    activeTodos() {
+      return this.todos.filter((todo) => !todo.completed)
+    },
+    completedTodos() {
+      return this.todos.filter((todo) => todo.completed)
+    },
     filteredTodos() {
       switch (this.todoFilter) {
         default:
         case 'all':
           return this.todos
         case 'active':
-          return this.todos.filter((todo) => !todo.completed)
+          return this.activeTodos
         case 'completed':
-          return this.todos.filter((todo) => todo.completed)
+          return this.completedTodos
       }
     }
   },
@@ -50,7 +56,7 @@ export default {
       this.todos.push(newTodo)
     },
     clearCompleted() {
-      this.todos = this.todos.filter((todo) => !todo.completed)
+      this.todos = this.activeTodos()
     }
   },
   watch: {

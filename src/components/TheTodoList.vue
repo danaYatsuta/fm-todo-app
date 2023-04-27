@@ -81,7 +81,7 @@ export default {
           v-for="todo in filteredTodos"
           :key="todo.id"
           :todo="todo"
-          @updateTodoCompletion="(newCompleted) => (todo.completed = newCompleted)"
+          @update-todo-completion="(newCompleted) => (todo.completed = newCompleted)"
           @delete-todo="todos = todos.filter((existingTodo) => existingTodo !== todo)"
         >
           {{ todo.text }}
@@ -109,7 +109,7 @@ export default {
           <div ref="filter">
             <TodoListFilter
               :default-todo-filter="todoFilter"
-              @updateTodoFilter="(newTodoFilter) => (todoFilter = newTodoFilter)"
+              @update-todo-filter="(newTodoFilter) => (todoFilter = newTodoFilter)"
             />
           </div>
         </div>

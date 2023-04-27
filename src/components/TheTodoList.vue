@@ -16,6 +16,18 @@ export default {
   },
   data() {
     return {
+      todos: [
+        {
+          id: 1,
+          text: 'Todo 1',
+          completed: false
+        },
+        {
+          id: 2,
+          text: 'Todo 2',
+          completed: true
+        }
+      ],
       isMdScreen: false
     }
   },
@@ -51,9 +63,10 @@ export default {
       <AppCard
         class="divide-y divide-very-light-grayish-blue shadow-xl dark:divide-dt-very-dark-grayish-blue-2"
       >
-        <TodoListItem :id="1">item 1 item 1 item 1 item 1 item 1 item 1 item 1 item 1</TodoListItem>
-        <TodoListItem :id="2">item 2</TodoListItem>
-        <TodoListItem :id="3">item 3</TodoListItem>
+        <TodoListItem v-for="todo in todos" :key="todo.id" :id="todo.id">
+          {{ todo.text }}
+        </TodoListItem>
+
         <div
           class="flex h-[3.125rem] items-center justify-between px-5 text-sm text-dark-grayish-blue dark:text-dt-very-dark-grayish-blue md:px-6 md:text-base"
         >

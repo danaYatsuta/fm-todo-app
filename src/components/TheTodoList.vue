@@ -71,6 +71,10 @@ export default {
   mounted() {
     this.onResize()
     window.addEventListener('resize', this.onResize)
+
+    this.createNewTodo('Complete online JavaScript course')
+    this.createNewTodo('Jog around the park 3x')
+    this.createNewTodo('Read for 1 hour')
   },
   beforeUnmount() {
     window.removeEventListener('resize', this.onResize)

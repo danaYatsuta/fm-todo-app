@@ -14,6 +14,7 @@ export default {
       default: false
     }
   },
+  emits: ['updateTodoCompletion'],
   data() {
     return {
       isCompleted: this.isFormItem ? false : this.todo.completed

@@ -7,6 +7,7 @@ export default {
     IconMoon,
     IconSun
   },
+  emits: ['toggleDarkMode'],
   methods: {
     toggleDarkMode() {
       this.$emit('toggleDarkMode')

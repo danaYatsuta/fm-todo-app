@@ -2,6 +2,8 @@
 import IconCheck from './icons/IconCheck.vue'
 import IconCross from './icons/IconCross.vue'
 
+import { store } from '/src/store.js'
+
 export default {
   components: {
     IconCheck,
@@ -18,7 +20,8 @@ export default {
   emits: ['updateTodoCompletion', 'deleteTodo', 'moveTodo'],
   data() {
     return {
-      isCompleted: this.isFormItem ? false : this.todo.completed
+      isCompleted: this.isFormItem ? false : this.todo.completed,
+      store
     }
   },
   computed: {
@@ -31,6 +34,7 @@ export default {
       this.$emit('deleteTodo')
     },
     onDragStart(e) {
+      this.store.isDragging = true
       e.dataTransfer.setData('text/plain', this.index)
     },
     onDragOver(e) {
@@ -39,6 +43,9 @@ export default {
       } else {
         e.dataTransfer.dropEffect = 'none'
       }
+    },
+    onDragEnd() {
+      this.store.isDragging = false
     },
     onDrop(e) {
       this.$emit('moveTodo', e.dataTransfer.getData('text/plain'), this.index)
@@ -59,9 +66,13 @@ export default {
     :draggable="!isFormItem"
     @dragstart="onDragStart"
     @dragover.prevent="onDragOver"
+    @dragend="onDragEnd"
     @drop.prevent="onDrop"
   >
-    <div class="flex w-full items-center gap-4 overflow-hidden">
+    <div
+      class="flex w-full items-center gap-4 overflow-hidden"
+      :class="{ 'pointer-events-none': store.isDragging }"
+    >
       <label
         :for="`todo-${id}`"
         class="aspect-square w-5 rounded-full from-check-bg-from to-check-bg-to p-px md:w-6"
@@ -102,6 +113,7 @@ export default {
       @click="deleteTodo"
       aria-label="Delete task"
       class="w-3 md:w-4 xl:hidden xl:group-hover:block"
+      :class="{ 'pointer-events-none': store.isDragging }"
     >
       <IconCross />
     </button>

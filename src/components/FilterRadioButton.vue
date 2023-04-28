@@ -21,7 +21,7 @@ export default {
     />
     <label
       :for="value"
-      class="cursor-pointer text-base font-bold text-dark-grayish-blue hover:text-very-dark-grayish-blue peer-checked:text-bright-blue dark:text-dt-very-dark-grayish-blue dark:hover:text-dt-light-grayish-blue-hover dark:peer-checked:text-bright-blue"
+      class="cursor-pointer text-sm font-bold text-dark-grayish-blue hover:text-very-dark-grayish-blue peer-checked:text-bright-blue dark:text-dt-very-dark-grayish-blue dark:hover:text-dt-light-grayish-blue-hover dark:peer-checked:text-bright-blue"
       ><slot></slot>
     </label>
   </div>

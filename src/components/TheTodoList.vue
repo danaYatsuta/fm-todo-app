@@ -101,7 +101,7 @@ export default {
         </TodoListItem>
 
         <div
-          class="flex h-[3.125rem] items-center justify-between px-5 text-sm text-dark-grayish-blue dark:text-dt-very-dark-grayish-blue md:px-6 md:text-base"
+          class="flex h-[3.125rem] items-center justify-between px-5 text-xs text-dark-grayish-blue dark:text-dt-very-dark-grayish-blue md:px-6 md:text-sm"
         >
           <p v-if="activeTodos.length === 0">No tasks</p>
           <p v-else>{{ activeTodos.length }} items left</p>

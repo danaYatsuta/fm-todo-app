@@ -22,7 +22,7 @@ export default {
     >
       <TheHeader @toggle-dark-mode="darkModeEnabled = !darkModeEnabled" />
 
-      <main class="-translate-y-24 md:-translate-y-36">
+      <main class="flex-1 -translate-y-24 md:-translate-y-36">
         <TheTodoList />
 
         <p

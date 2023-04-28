@@ -90,12 +90,12 @@ export default {
           class="hidden"
         />
 
-        <div
+        <span
           class="flex aspect-square w-full items-center justify-center rounded-full bg-white dark:bg-dt-very-dark-desaturated-blue"
           :class="{ 'bg-opacity-0 dark:bg-opacity-0': isCompleted }"
         >
           <IconCheck class="w-2 md:w-3" :class="{ 'block': isCompleted, 'hidden': !isCompleted }" />
-        </div>
+        </span>
       </label>
 
       <div

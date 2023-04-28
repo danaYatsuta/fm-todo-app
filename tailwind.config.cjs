@@ -48,6 +48,9 @@ module.exports = {
       screens: {
         '2xl': '1440px'
       },
+      maxWidth: {
+        'xl': '540px'
+      },
       backgroundImage: {
         'mobile-light': 'url("./images/bg-mobile-light.jpg")',
         'desktop-light': 'url("./images/bg-desktop-light.jpg")',

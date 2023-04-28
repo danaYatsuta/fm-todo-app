@@ -58,14 +58,11 @@ export default {
     clearCompleted() {
       this.todos = this.activeTodos
     },
-    moveTodo(idToMove, idToInsert) {
-      const todoToMoveIndex = this.todos.findIndex((todo) => todo.id == idToMove)
-      const todoToInsertIndex = this.todos.findIndex((todo) => todo.id == idToInsert)
+    moveTodo(indexToMove, indexToInsert) {
+      const todoToMove = this.todos[indexToMove]
 
-      const todoToMove = this.todos[todoToMoveIndex]
-
-      this.todos.splice(todoToMoveIndex, 1)
-      this.todos.splice(todoToInsertIndex, 0, todoToMove)
+      this.todos.splice(indexToMove, 1)
+      this.todos.splice(indexToInsert, 0, todoToMove)
     }
   },
   watch: {
@@ -100,9 +97,10 @@ export default {
         class="divide-y divide-very-light-grayish-blue shadow-xl dark:divide-dt-very-dark-grayish-blue-2"
       >
         <TodoListItem
-          v-for="todo in filteredTodos"
+          v-for="(todo, index) in filteredTodos"
           :key="todo.id"
           :todo="todo"
+          :index="index"
           @update-todo-completion="(newCompleted) => (todo.completed = newCompleted)"
           @delete-todo="todos = todos.filter((existingTodo) => existingTodo !== todo)"
           @move-todo="moveTodo"

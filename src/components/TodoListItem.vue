@@ -9,6 +9,7 @@ export default {
   },
   props: {
     todo: Object,
+    index: Number,
     isFormItem: {
       type: Boolean,
       default: false
@@ -29,14 +30,14 @@ export default {
     deleteTodo() {
       this.$emit('deleteTodo')
     },
-    onDragStart(e, todo) {
-      e.dataTransfer.setData('text/plain', todo.id)
+    onDragStart(e, index) {
+      e.dataTransfer.setData('text/plain', index)
     },
     onDragOver(e) {
       e.dataTransfer.dropEffect = 'move'
     },
-    onDrop(e, todo) {
-      this.$emit('moveTodo', e.dataTransfer.getData('text/plain'), todo.id)
+    onDrop(e, index) {
+      this.$emit('moveTodo', e.dataTransfer.getData('text/plain'), index)
     }
   },
   watch: {
@@ -52,9 +53,9 @@ export default {
     class="group flex items-center justify-between gap-4 px-5 md:px-6"
     :class="{ 'h-12 md:h-16': isFormItem, 'h-[3.25rem] md:h-16': !isFormItem }"
     :draggable="!isFormItem"
-    @dragstart="(e) => onDragStart(e, todo)"
+    @dragstart="(e) => onDragStart(e, index)"
     @dragover.prevent="onDragOver"
-    @drop.prevent="(e) => onDrop(e, todo)"
+    @drop.prevent="(e) => onDrop(e, index)"
   >
     <div class="flex w-full items-center gap-4 overflow-hidden">
       <label

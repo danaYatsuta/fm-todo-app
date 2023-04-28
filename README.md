@@ -37,6 +37,7 @@ Users should be able to:
 ### Links
 
 - Live Site URL: [GitHub Pages](https://danayatsuta.github.io/frontend-mentor-todo-app/)
+- Solution URL: [Solution page on Frontend Mentor](https://www.frontendmentor.io/solutions/solution-using-tailwind-css-and-vuejs-GOJT5PMngk)
 
 ## My process
 

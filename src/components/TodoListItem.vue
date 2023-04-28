@@ -30,14 +30,14 @@ export default {
     deleteTodo() {
       this.$emit('deleteTodo')
     },
-    onDragStart(e, index) {
-      e.dataTransfer.setData('text/plain', index)
+    onDragStart(e) {
+      e.dataTransfer.setData('text/plain', this.index)
     },
     onDragOver(e) {
       e.dataTransfer.dropEffect = 'move'
     },
-    onDrop(e, index) {
-      this.$emit('moveTodo', e.dataTransfer.getData('text/plain'), index)
+    onDrop(e) {
+      this.$emit('moveTodo', e.dataTransfer.getData('text/plain'), this.index)
     }
   },
   watch: {
@@ -53,9 +53,9 @@ export default {
     class="group flex items-center justify-between gap-4 px-5 md:px-6"
     :class="{ 'h-12 md:h-16': isFormItem, 'h-[3.25rem] md:h-16': !isFormItem }"
     :draggable="!isFormItem"
-    @dragstart="(e) => onDragStart(e, index)"
+    @dragstart="onDragStart"
     @dragover.prevent="onDragOver"
-    @drop.prevent="(e) => onDrop(e, index)"
+    @drop.prevent="onDrop"
   >
     <div class="flex w-full items-center gap-4 overflow-hidden">
       <label

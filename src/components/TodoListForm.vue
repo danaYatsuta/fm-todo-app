@@ -25,7 +25,7 @@ export default {
 
 <template>
   <AppCard>
-    <TodoListItem :id="0" :isFormItem="true">
+    <TodoListItem :isFormItem="true">
       <form @submit.prevent="onSubmit">
         <input
           type="text"

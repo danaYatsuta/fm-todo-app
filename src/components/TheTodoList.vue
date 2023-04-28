@@ -8,7 +8,7 @@ import tailwindConfig from '@tailwindConfig'
 
 const fullConfig = resolveConfig(tailwindConfig)
 
-let id = 1
+let id = 0
 
 export default {
   components: {

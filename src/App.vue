@@ -18,7 +18,7 @@ export default {
 <template>
   <div :class="{ 'dark': darkModeEnabled }">
     <div
-      class="flex flex-col bg-very-light-gray font-josefin-sans text-sm text-very-dark-grayish-blue dark:bg-dt-very-dark-blue dark:text-dt-light-grayish-blue md:text-lg"
+      class="flex min-h-screen flex-col bg-very-light-gray font-josefin-sans text-sm text-very-dark-grayish-blue dark:bg-dt-very-dark-blue dark:text-dt-light-grayish-blue md:text-lg"
     >
       <TheHeader @toggle-dark-mode="darkModeEnabled = !darkModeEnabled" />
 

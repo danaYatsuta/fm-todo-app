@@ -92,7 +92,7 @@ export default {
 </script>
 
 <template>
-  <div class="-translate-y-24 px-6 md:-translate-y-36">
+  <div class="px-6">
     <div class="mx-auto flex max-w-xl flex-col gap-4 md:gap-6">
       <TodoListForm @createNewTodo="createNewTodo" />
 

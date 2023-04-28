@@ -46,11 +46,11 @@ export default {
     onResize() {
       this.isMdScreen = window.matchMedia(`(min-width: ${fullConfig.theme.screens.md})`).matches
     },
-    createNewTodo(newTodoText) {
+    createNewTodo(newTodoText, newTodoCompleted = false) {
       const newTodo = {
         id: id++,
         text: newTodoText,
-        completed: false
+        completed: newTodoCompleted
       }
 
       this.todos.push(newTodo)
@@ -78,9 +78,12 @@ export default {
     this.onResize()
     window.addEventListener('resize', this.onResize)
 
-    this.createNewTodo('Complete online JavaScript course')
+    this.createNewTodo('Complete online JavaScript course', true)
     this.createNewTodo('Jog around the park 3x')
+    this.createNewTodo('10 minutes meditation')
     this.createNewTodo('Read for 1 hour')
+    this.createNewTodo('Pick up groceries')
+    this.createNewTodo('Complete Todo App on Frontend Mentor')
   },
   beforeUnmount() {
     window.removeEventListener('resize', this.onResize)

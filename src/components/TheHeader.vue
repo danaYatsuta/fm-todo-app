@@ -24,9 +24,9 @@ export default {
       class="mx-auto h-full w-full max-w-screen-2xl bg-mobile-light px-6 pt-12 backdrop-blur-md dark:bg-mobile-dark xs:bg-desktop-light dark:xs:bg-desktop-dark md:pt-20"
     >
       <div class="mx-auto flex w-full max-w-xl items-start justify-between">
-        <a href="#" class="text-2xl font-bold uppercase tracking-[0.4em] text-white md:text-4xl"
-          >Todo</a
-        >
+        <a href="#">
+          <h1 class="text-2xl font-bold uppercase tracking-[0.4em] text-white md:text-4xl">Todo</h1>
+        </a>
         <button @click="toggleDarkMode" aria-label="Toggle night mode" class="w-6 md:w-8">
           <IconMoon class="dark:hidden" />
           <IconSun class="hidden dark:block" />

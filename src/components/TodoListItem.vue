@@ -34,7 +34,11 @@ export default {
       e.dataTransfer.setData('text/plain', this.index)
     },
     onDragOver(e) {
-      e.dataTransfer.dropEffect = 'move'
+      if (!this.isFormItem && e.dataTransfer.getData('text/plain') != this.index) {
+        e.dataTransfer.dropEffect = 'move'
+      } else {
+        e.dataTransfer.dropEffect = 'none'
+      }
     },
     onDrop(e) {
       this.$emit('moveTodo', e.dataTransfer.getData('text/plain'), this.index)

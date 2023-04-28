@@ -14,7 +14,7 @@ export default {
       default: false
     }
   },
-  emits: ['updateTodoCompletion', 'deleteTodo'],
+  emits: ['updateTodoCompletion', 'deleteTodo', 'moveTodo'],
   data() {
     return {
       isCompleted: this.isFormItem ? false : this.todo.completed
@@ -28,6 +28,15 @@ export default {
   methods: {
     deleteTodo() {
       this.$emit('deleteTodo')
+    },
+    onDragStart(e, todo) {
+      e.dataTransfer.setData('text/plain', todo.id)
+    },
+    onDragOver(e) {
+      e.dataTransfer.dropEffect = 'move'
+    },
+    onDrop(e, todo) {
+      this.$emit('moveTodo', e.dataTransfer.getData('text/plain'), todo.id)
     }
   },
   watch: {
@@ -42,6 +51,10 @@ export default {
   <div
     class="group flex items-center justify-between gap-4 px-5 md:px-6"
     :class="{ 'h-12 md:h-16': isFormItem, 'h-[3.25rem] md:h-16': !isFormItem }"
+    :draggable="!isFormItem"
+    @dragstart="(e) => onDragStart(e, todo)"
+    @dragover.prevent="onDragOver"
+    @drop.prevent="(e) => onDrop(e, todo)"
   >
     <div class="flex w-full items-center gap-4 overflow-hidden">
       <label

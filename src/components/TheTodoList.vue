@@ -57,6 +57,15 @@ export default {
     },
     clearCompleted() {
       this.todos = this.activeTodos
+    },
+    moveTodo(idToMove, idToInsert) {
+      const todoToMoveIndex = this.todos.findIndex((todo) => todo.id == idToMove)
+      const todoToInsertIndex = this.todos.findIndex((todo) => todo.id == idToInsert)
+
+      const todoToMove = this.todos[todoToMoveIndex]
+
+      this.todos.splice(todoToMoveIndex, 1)
+      this.todos.splice(todoToInsertIndex, 0, todoToMove)
     }
   },
   watch: {
@@ -96,6 +105,7 @@ export default {
           :todo="todo"
           @update-todo-completion="(newCompleted) => (todo.completed = newCompleted)"
           @delete-todo="todos = todos.filter((existingTodo) => existingTodo !== todo)"
+          @move-todo="moveTodo"
         >
           {{ todo.text }}
         </TodoListItem>

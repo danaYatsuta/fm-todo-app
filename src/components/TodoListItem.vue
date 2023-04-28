@@ -34,7 +34,7 @@ export default {
       e.dataTransfer.setData('text/plain', this.index)
     },
     onDragOver(e) {
-      if (!this.isFormItem && e.dataTransfer.getData('text/plain') != this.index) {
+      if (!this.isFormItem) {
         e.dataTransfer.dropEffect = 'move'
       } else {
         e.dataTransfer.dropEffect = 'none'

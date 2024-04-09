@@ -155,4 +155,12 @@ export default {
 .list-leave-active {
   position: absolute;
 }
+
+@media (prefers-reduced-motion) {
+  .list-move,
+  .list-enter-active,
+  .list-leave-active {
+    transition: none;
+  }
+}
 </style>

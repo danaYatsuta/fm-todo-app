@@ -62,7 +62,7 @@ export default {
 <template>
   <div
     class="group flex items-center justify-between gap-4 px-5 md:px-6"
-    :class="{ 'h-12 md:h-16': isFormItem, 'h-[3.25rem] md:h-16': !isFormItem }"
+    :class="{ 'h-12 md:h-16': isFormItem, 'h-[3.25rem] cursor-grab md:h-16': !isFormItem }"
     :draggable="!isFormItem"
     @dragstart="onDragStart"
     @dragover.prevent="onDragOver"

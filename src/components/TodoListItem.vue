@@ -21,6 +21,7 @@ export default {
   data() {
     return {
       isCompleted: this.isFormItem ? false : this.todo.completed,
+      isBeingDragged: false,
       isBeingDraggedOver: false,
       store
     }
@@ -36,6 +37,7 @@ export default {
     },
     onDragStart(e) {
       this.store.isDragging = true
+      this.isBeingDragged = true
       e.dataTransfer.setData('text/plain', this.index)
     },
     onDragOver(e) {
@@ -52,6 +54,7 @@ export default {
     },
     onDragEnd() {
       this.store.isDragging = false
+      this.isBeingDragged = false
     },
     onDrop(e) {
       this.isBeingDraggedOver = false
@@ -72,6 +75,7 @@ export default {
     :class="{
       'h-12 md:h-16': isFormItem,
       'h-[3.25rem] cursor-grab md:h-16': !isFormItem,
+      'opacity-50': isBeingDragged,
       'opacity-30': !isFormItem && isBeingDraggedOver
     }"
     :draggable="!isFormItem"

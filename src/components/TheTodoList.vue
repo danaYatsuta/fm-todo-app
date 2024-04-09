@@ -99,18 +99,19 @@ export default {
       <AppCard
         class="divide-y divide-very-light-grayish-blue shadow-xl dark:divide-dt-very-dark-grayish-blue-2"
       >
-        <TodoListItem
-          v-for="(todo, index) in filteredTodos"
-          :key="todo.id"
-          :todo="todo"
-          :index="index"
-          @update-todo-completion="(newCompleted) => (todo.completed = newCompleted)"
-          @delete-todo="todos = todos.filter((existingTodo) => existingTodo !== todo)"
-          @move-todo="moveTodo"
-        >
-          {{ todo.text }}
-        </TodoListItem>
-
+        <TransitionGroup name="list">
+          <TodoListItem
+            v-for="(todo, index) in filteredTodos"
+            :key="todo.id"
+            :todo="todo"
+            :index="index"
+            @update-todo-completion="(newCompleted) => (todo.completed = newCompleted)"
+            @delete-todo="todos = todos.filter((existingTodo) => existingTodo !== todo)"
+            @move-todo="moveTodo"
+          >
+            {{ todo.text }}
+          </TodoListItem>
+        </TransitionGroup>
         <div
           class="flex h-[3.125rem] items-center justify-between px-5 text-xs text-dark-grayish-blue dark:text-dt-very-dark-grayish-blue md:px-6 md:text-sm"
         >
@@ -143,3 +144,15 @@ export default {
     </div>
   </div>
 </template>
+
+<style scoped>
+.list-move,
+.list-enter-active,
+.list-leave-active {
+  transition: all 0.5s ease;
+}
+
+.list-leave-active {
+  position: absolute;
+}
+</style>

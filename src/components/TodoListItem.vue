@@ -21,6 +21,7 @@ export default {
   data() {
     return {
       isCompleted: this.isFormItem ? false : this.todo.completed,
+      isBeingDraggedOver: false,
       store
     }
   },
@@ -38,16 +39,22 @@ export default {
       e.dataTransfer.setData('text/plain', this.index)
     },
     onDragOver(e) {
+      this.isBeingDraggedOver = true
+
       if (!this.isFormItem) {
         e.dataTransfer.dropEffect = 'move'
       } else {
         e.dataTransfer.dropEffect = 'none'
       }
     },
+    onDragLeave() {
+      this.isBeingDraggedOver = false
+    },
     onDragEnd() {
       this.store.isDragging = false
     },
     onDrop(e) {
+      this.isBeingDraggedOver = false
       this.$emit('moveTodo', e.dataTransfer.getData('text/plain'), this.index)
     }
   },
@@ -62,10 +69,15 @@ export default {
 <template>
   <div
     class="group flex items-center justify-between gap-4 px-5 md:px-6"
-    :class="{ 'h-12 md:h-16': isFormItem, 'h-[3.25rem] cursor-grab md:h-16': !isFormItem }"
+    :class="{
+      'h-12 md:h-16': isFormItem,
+      'h-[3.25rem] cursor-grab md:h-16': !isFormItem,
+      'opacity-30': !isFormItem && isBeingDraggedOver
+    }"
     :draggable="!isFormItem"
     @dragstart="onDragStart"
     @dragover.prevent="onDragOver"
+    @dragleave.prevent="onDragLeave"
     @dragend="onDragEnd"
     @drop.prevent="onDrop"
   >
